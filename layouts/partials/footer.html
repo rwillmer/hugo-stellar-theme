@@ -1,4 +1,5 @@
 <footer id="footer">
+  {{ if .Site.Params.footer.enable }}
   <section>
     <h2>{{ .Site.Params.footer.title }}</h2>
     <p>{{ .Site.Params.footer.description | markdownify }}</p>
@@ -25,7 +26,6 @@
       <dt>Email</dt>
       <dd><a href="mailto:{{.Site.Params.footer.email}}">{{.Site.Params.footer.email | markdownify }}</a></dd>
     </dl>
-  
     {{ if .Site.Params.footer.social_list.enable }}
       <ul class="icons">
         {{ range .Site.Params.footer.social }}
@@ -34,9 +34,10 @@
       </ul>
     {{ end }}
   </section>
-  
+  {{ end }}
+
   {{ if .Site.Params.footer.copyright.enable }}
-    <p class="copyright">{{.Site.Params.footer.copyright.text | markdownify }}.</p>      
+    <p class="copyright">{{.Site.Params.footer.copyright.text | markdownify }}.</p>
   {{ end }}
 
 </footer>
